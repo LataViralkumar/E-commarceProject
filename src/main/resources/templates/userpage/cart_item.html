@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootsp/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <link rel="stylesheet" href="/css/ProductContent.css">
+    <link rel="stylesheet" href="/css/add_to_cart.css">
+    <script src="/js/productInc.js"></script>
+
+ 
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/userpage/">Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <!-- collapse -->
+          </button>
+          <div class="collapse navbar-collapse serachBox" id="navbarScroll">
+            <form class="d-flex serachBox_input" role="search">
+              <input class="form-control me-0 serachBox_input but" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success serachBox_button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+          <form class="form-inline my-2 my-lg-0">
+           <a class="navbar-brand" data-bs-toggle="modal" href="#exampleModalToggle"><i class="fa-user-pen"></i></a>
+             <a class="navbar-brand  text text-danger"  th:href="@{/logout}">Logout</a>
+          </form>
+        </div>
+    </nav>
+
+  
+        <div class="container-fluid mx-auto mt-5">
+            <div class="row mx-auto">
+              <!-- left side -->
+                <div class="col-md-9 col-12 d-flex justify-content-start m-0 p-0" >
+                    <div class="card">
+                    <h5 class="card-title m-2"  > Cart Items</h5> 	
+
+                    <div th:each="p: ${product}">
+                      <div class="card-body" th:id="${p.getProductID().Product_Id}"  >
+                     
+      
+                        <hr>
+                            <div class="row">
+                                <div class="col-md-3 col-12">
+                                  <!-- product img -->
+                                  <img class="" th:src="@{${'/image/'+p.getProductID().ProductImg1}}" style="width: 100%; height: 80%;" alt="" srcset="">
+                                </div>
+                                <div class="col-md-3 col-12">
+                                  <!-- product detaile -->
+                                  <p class="text"  th:text="${ p.getProductID().ProductName}">name</p>
+                                  <p th:text="${ p.getProductID().ProductColor}">color</p>
+                                  <p th:text="${ p.getProductID().ProductSize}">size</p>
+                                  <p th:text="${ p.getProductID().ProductDes}">Descripstion</p>
+                                </div>
+
+                                <div class="col-md-3 col-12">
+                                  <!-- product price -->
+                                
+                                  <b class="d-flex iprice justify-content-start" th:id="${ p.getProductID().Product_Id*2}"  th:text="${ p.getProductID().ProductPrice}"> 10</b>
+                                
+                                  <input  type="hidden"   class=" d-flex justify-content-end" th:value="${ p.getProductID().ProductPrice}">
+                                  
+                                </div>
+
+                                <div class="col-md-3 col-12">
+                                  <!-- product incr decr quntity -->
+                                  <ul class="pagination d-flex justify-content-start  ">
+                                 
+                                    <li class="page-item"><button class="page-link"   th:onclick="item_decriment([[${p.getProductID().Product_Id*5}]],[[${p.getProductID().ProductPrice}]],[[${p.getProductID().Product_Id*2}]] ,'iprice' , 'mtotal','atotal' , 'finalprice' )" ><b>-</b></button></li>
+                                    <li class="page-item"> <input  type="text"   style="width:100%;" th:id="${p.getProductID().Product_Id*5}"  class="page-link text-center qnty" value="1"></input></li>
+                                    <label for=""></label>
+                                    <li class="page-item"><button class="page-link" id="q_inc"   th:onclick="item_incriment([[${p.getProductID().Product_Id*5}]], [[${p.getProductID().ProductPrice}]] , [[${p.getProductID().Product_Id*2}]] , 'iprice' , 'mtotal','atotal' , 'finalprice')" ><b>+</b></button></li>
+                                  </ul>
+                                  <div class="d-flex justify-content-center">
+                                  <button type="submit" style="width:100%;" th:onclick="remove_item([[${p.getProductID().Product_Id}]] , 'iprice' , 'mtotal','atotal' ,'finalprice' )" class="btn btn-danger">delete</button>
+                                  </div>
+                                </div>
+                            </div>
+                      </div>
+                    </div>
+                      <!-- second copy start -->
+                      <!-- second copy end -->
+                    </div>
+                    <!-- vr lin -->
+                    <!-- <div class="vr"></div> -->
+                    <hr>
+                </div>
+                
+                <!-- right -->
+                <div class=" col-md-3 col-12 m-0 p-0 " >
+                  <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">Summary</h5>
+                      <hr>
+                      <!-- <hr> -->
+                        <div class="row mx-auto">
+                          <div class="col-md-6 col-12">
+                            <!-- product incr decr quntity -->
+                            <p class="d-flex justify-content-start" >Product:</p>
+                            <p class="d-flex justify-content-start">Shiping:</p>
+                          </div>
+                          <div class="col-md-6 col-12">
+                            <!-- product incr decr quntity -->
+                            <p class="d-flex justify-content-start" id="atotal">00</p>
+                            <p class="d-flex justify-content-start">50</p>
+                          </div>
+
+                          <hr>
+                          <form action="/userpage/Userinfo" method="post">
+                          <div class="row">
+                            <div class="col-md-6 col-12">
+                              <!-- product incr decr quntity -->
+                              <p class="d-flex justify-content-start" >Total Amount</p>
+                             
+                            </div>
+                            <div class="col-md-6 col-12">
+                              <!-- product incr decr quntity -->
+                              <p class="d-flex justify-content-center" id="mtotal">555</p>
+                              <input type="hidden" id = "finalprice"/>
+                             
+                            </div>
+    
+                          </div>
+                       
+                      
+      
+
+                          <div class="col-md-12 col-12">
+                            <!-- product incr decr quntity -->
+                            <button class="btn btn-primary form-control mt-5" type="submit" >Place Order</button>
+                          </div>
+                         </form>
+                        </div>
+
+                    </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <script> GTotal('iprice' , 'mtotal','atotal' , 'finalprice') </script>
+      <!-- <script>
+
+        var ipric = document.getElementsByClassName("iprice");
+        var total = document.getElementById("gtotal");
+
+        function Grantotal(){
+ 
+                alert("hello");
+                gt=0;
+                for(i=0;i<ipric.length;i++){
+                alert( ipric[i].innerText);
+                gt=gt+ parseInt(ipric[i].innerText);
+        }
+        total.innerHTML=gt;
+                
+        }
+      </script> -->
+</body>
+</html>
