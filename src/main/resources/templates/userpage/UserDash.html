@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="/bootsp/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+    <link rel="stylesheet" href="/css/HomePage.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script src="/js/cartData.js"></script>
+
+</head>
+<body class="nav_background">
+    <!-- nav bar start -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" >Logo</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            <!-- collapse -->
+          </button>
+          <div class="collapse navbar-collapse serachBox" id="navbarScroll">
+            <form class="d-flex serachBox_input" role="search">
+              <input class="form-control me-0 serachBox_input but" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success serachBox_button" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+          <form class="form-inline my-2 my-lg-0">
+            <a class="navbar-brand  text text-danger"  th:href="@{/logout}">Logout</a>
+            <a class="navbar-brand" href="/userpage/profile"><i class="fa-user-pen"></i></a>
+            <a class="navbar-brand" href="/userpage/cart_item">  <i class="fa-solid fa-cart-shopping"></i></a>
+          </form> 
+          
+          
+        </div>
+      </nav>
+
+
+      <!-- login model start -->
+
+
+      <!-- <div class="modal fade modal-xl" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content  svg_back_login_model">
+                <div class = "row m-5">
+                    <div class="col-6"> 
+                  			<h1 th:text = "${user.UserName}"></h1>
+                  			<h1 th:text = "${user.Email}"></h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div> -->
+
+    <!-- log model end  -->     
+        
+    <!-- nav bar end -->
+
+    <!-- carosole start -->
+
+    
+    <div class="container carosole_margin p-0 ">
+        <div class="row">
+            <div class="col-6 m-0 p-0">
+                <div id="carouselExampleIndicators" class="carousel slide carosol">
+                    <div class="carousel-indicators ">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active ">
+                        <img src="https://media.giphy.com/media/3o7qE9hafMPIPeJMvC/giphy.gif" class="d-block w-100 img_calss m-0 p-0" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://i.ibb.co/L8Nrb7p/1.jpg" class="d-block w-100 img_calss m-0 p-0" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://i.ibb.co/cLnZjnS/2.jpg" class="d-block w-100 img_calss m-0 p-0" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+
+            <div class="col-6 m-0 p-0">
+                <div class="row">
+                <div class="m-0 p-0">
+                    <div class="m-0 p-0">
+                    <img src="https://media.giphy.com/media/3o7bujnKrJCz2k7pW8/giphy.gif"   style="height: 50vh; width: 100%;" class="" alt="...">
+                    </div>
+                </div>
+                <div class="col-6 m-0 p-0">
+                    <div class=" m-0 p-0">
+                        <img src="https://media.giphy.com/media/Qw4X3FPv7GxR0r3Lzvq/giphy.gif"   style="height: 30vh; width: 100%;" class="" alt="...">
+                    </div>
+                </div>
+                <div class="col-6 m-0 p-0">
+                    <div class="m-0 p-0">
+                        <img src="https://media.giphy.com/media/jnhGUhwOSPBAGysNra/giphy.gif"   style="height: 30vh; width: 100%;" class="" alt="...">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- carosole end -->
+
+    <!-- new arival product -->
+    
+    
+     <div class="row justify-content-center text-center m-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="header">
+            <h1 class="text-success text-uppercase">Product Category</h1>
+            <hr class="hr hr-blurry" />
+            <!-- <h2>Popular Products</h2> -->
+                <div class="d-flex justify-content-start">
+                <form th:action="@{/userpage/Catagory}" method="get" class="m-1">
+                        <input type="hidden" name="Catagory" value="sport">
+                        <button type="submit" style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);" class="btn btn-secondary rounded-pill border-0 ">Male</button>
+                </form>
+                <form action="" method="post" class="m-1">
+                    <input type="hidden" >
+                    <button type="button" style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);" class="btn btn-secondary rounded-pill border-0 ">female</button>
+                </form>
+                <form action="" method="post" class="m-1">
+                    <input type="hidden">
+                    <button type="button" style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);" class="btn btn-secondary rounded-pill border-0 ">female</button>
+                </form>
+                <form action="" method="post" class="m-1">
+                    <input type="hidden">
+                    <button type="button" style="background: linear-gradient(90deg, #d53369 0%, #daae51 100%);" class="btn btn-secondary rounded-pill border-0 ">female</button>
+                </form>
+                </div>
+                
+    </div>
+</div>
+
+ <div class="row justify-content-center text-center m-5">
+    <div class="col-md-8 col-lg-6">
+        <div class="header">
+            
+            <h1 class="text-success text-uppercase">New Arrivals</h1>
+            <hr class="hr hr-blurry" />
+            <!-- <h2>Popular Products</h2> -->
+        </div>
+    </div>
+</div>
+      
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <section class="section-products">
+          <div class="container">
+          
+              <div class="row">
+                  <!-- Single Product -->
+                  <div class="col-md-3" th:each="p: ${product}">
+                     
+                      <div id="product-1" class="single-product"  th:style="' background:url('+@{${'/image/'+p.ProductImg2}}+');height:80%; width:100%; background-size:cover; background-repeat:no-repeat; transition: all 0.3s; '">
+                        <div>
+                            <a th:href="@{'/userpage/ItemDescription/' + ${p.Product_Id}}" rel="">viral</a>
+                        </div>  
+                        <div class="part-1">
+                              <ul>
+                                  <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                  <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                  <li>
+                                  <form>
+                                  	 <a href="#" th:onclick="test( [[${p.Product_Id}]] )"><i class="fas fa-plus"></i></a>
+                                  </form> 
+                                  </li>
+                                  <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                              </ul>
+                          </div>
+                          <div class="part-2">
+                              <h3 class="product-title text-muted" th:text="${p.ProductName}"> </h3>
+                              <!-- <h4 class="product-old-price" th:text="${p.ProductName}">$79.99</h4> -->
+                              <h4 class="product-price" th:text="${p.ProductPrice}"></h4>
+                          </div>
+                      </div>
+                    
+                  </div> 
+                  
+              </div>
+          </div>
+      </section>
+      </div>
+    </div>
+        
+    <!-- new arrival end -->
+
+
+
+
+    <!-- recommaandestion start -->
+
+
+    <!-- recommandestion end -->
+
+
+    <!-- all product start -->
+    <div class="row justify-content-center text-center m-5">
+        <div class="col-md-8 col-lg-6">
+            <div class="header">
+                
+                <h1 class="text-success text-uppercase">Popular Products</h1>
+                <hr class="hr hr-blurry" />
+                <!-- <h2>Popular Products</h2> -->
+            </div>
+        </div>
+    </div>
+    <section class="section-products">
+      <div class="container">
+        
+          <div class="row">
+              <!-- Single Product -->
+              
+               <div class="col-md-3" th:each="p: ${product}">
+                        
+                      <div id="product-1" class="single-product" th:style="' background:url('+@{${'/image/'+p.ProductImg3}}+');height:80%; width:100%; background-size:cover; background-repeat:no-repeat; transition: all 0.3s; '">
+                          <div class="part-1">
+                              <ul>
+                                  <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                                  <li><a href="#"><i class="fas fa-heart"></i></a></li>
+                                  <li>
+                                  <form>
+                                  	 <a href="#" th:onclick="test( [[${p.Product_Id}]] )"><i class="fas fa-plus"></i></a>
+                                  </form> 
+                                  </li>
+                                  <li><a href="#"><i class="fas fa-expand"></i></a></li>
+                              </ul>
+                          </div>
+                          <div class="part-2">
+                              <h3 class="product-title text-muted" th:text="${p.ProductName}"> </h3>
+                              <!-- <h4 class="product-old-price" th:text="${p.ProductName}">$79.99</h4> -->
+                              <h4 class="product-price" th:text="${p.ProductPrice}"></h4>
+                          </div>
+                      </div>
+                  </div> 
+        
+	</div>
+	</div>
+	</section>
+  
+    <!-- all product -->
+
+
+    <!-- our story start -->
+    <div class="row justify-content-center text-center m-5">
+        <div class="col-md-8 col-lg-6">
+            <div class="header">
+                
+                <h1 class="text-success text-uppercase">Popular Products</h1>
+                <hr class="hr hr-blurry" />
+                <!-- <h2>Popular Products</h2> -->
+            </div>
+        </div>
+    </div>
+   <div class="container">
+    <div class="row">
+        <div class="col-6 d-flex">
+            <div class = "text-body">
+                <h3 class = "text-capitalize">Titel</h3>
+                <p class="text-capitalize ">Wikipedia is a multilingual free online encyclopedia written and maintained by a community of volunteers, known as Wikipedians, through open collaboration and using a wiki-based editing system. Wikipedia is the largest and most-read reference work in history.
+                    Wikipedia is a multilingual free online encyclopedia written and maintained by a community of volunteers, known as Wikipedians, through open collaboration and using a wiki-based editing system. Wikipedia is the largest and most-read reference work in history.
+                </p>
+            </div>
+        </div>
+        <div class="col-6 d-flex"> 
+        <img class="" style="height: 80%; width: 90%;" src="https://i.ibb.co/L8Nrb7p/1.jpg" alt="">
+        </div>
+    </div>
+   </div>
+
+    <!-- our story end -->
+
+
+    <!-- about us start -->
+    <div class="row justify-content-center text-center m-0">
+        <div class="col-md-8 col-lg-6">
+            <div class="header">
+                
+                <!-- <h1 class="text-success text-uppercase">Popular Products</h1> -->
+                <hr class="hr hr-blurry" />
+                <!-- <h2>Popular Products</h2> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- about us end -->
+
+
+    <script src="/bootsp/js/bootstrap.min.js"></script>
+    <script src="/fontawesome/js/fontawesome.min.js"></script>
+    <script src="/fontawesome/js/all.js"></script>
+</body>
+</html>
